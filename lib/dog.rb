@@ -37,7 +37,6 @@ class Dog
 
     def self.create(name:name,breed:breed)
         dog_attributes = {name: name,breed: breed}
-        #binding.pry
         dog = Dog.new(dog_attributes)
         dog.save
     end
@@ -51,7 +50,6 @@ class Dog
     def self.find_by_id(sought_id)
         row = DB[:conn].execute("SELECT * FROM dogs WHERE id = ?",sought_id)[0]
         new_dog = Dog.new(id:sought_id,name:row[1],breed:row[2])
-        #binding.pry
         new_dog
     end
 
